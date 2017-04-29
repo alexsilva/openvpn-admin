@@ -1,0 +1,5 @@
+git+https://github.com/alexsilva/django-xadmin.git@master
+django-supervisor
+django=1.9.+
+supervisor
+sh

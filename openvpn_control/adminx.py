@@ -41,7 +41,8 @@ class OVPNAdmin(object):
             'instance': instance
         })
 
-    vpn_activate.short_description = "VPN"
+    vpn_activate.short_description = """VPN<span style="margin-left: 5px" 
+                                        class="badge badge-success" id="vpn-ip"></span>"""
     vpn_activate.allow_tags = True
     vpn_activate.is_column = False
 

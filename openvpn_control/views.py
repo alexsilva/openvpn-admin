@@ -10,11 +10,13 @@ class VPNActivateView(View):
         Ovpn.objects.exclude(pk=pk).update(activated=False)
         Ovpn.objects.filter(pk=pk).update(activated=True)
         call_command("supervisor", **{'ctl-command': ('restart', 'openvpn')})
-        return HttpResponse("OK")
+        return JsonResponse({
+            'status': "OK"
+        })
 
 
 class VPNStatusView(View):
-    def get(self, request):
+    def get(self, request, pk):
         """Returns data about the currently configured vpn."""
         return JsonResponse({
             'current_ip': ipgetter.myip()

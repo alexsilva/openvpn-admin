@@ -42,6 +42,9 @@ STATIC_URL = "/static/"
 
 XADMIN_EXCLUDE_PLUGINS = ["bookmark", "export"]
 
+XADMIN_TITLE = u"OpenVPN"
+XADMIN_FOOTER_TITLE = XADMIN_TITLE
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.auth',

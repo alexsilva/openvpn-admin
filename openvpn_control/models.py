@@ -10,7 +10,7 @@ class Vpn(models.Model):
 
 
 class Ovpn(models.Model):
-    file = models.FileField(".ovpn", help_text="configuration file")
+    file = models.FileField("File (.ovpn)", help_text="configuration file")
 
     country = models.CharField("Country", max_length=8)
     protocol = models.CharField("Protocol", max_length=8)

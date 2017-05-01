@@ -28,8 +28,14 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 SUPERVISOR_CONFIG_FILE = os.path.join(BASE_DIR, "supervisord.tmpl.conf")
-# Application definition
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "vpn-files")
+MEDIA_URL = "/media/"
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'vpn-statics')
+STATIC_URL = "/static/"
+
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',

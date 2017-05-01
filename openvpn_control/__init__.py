@@ -1,0 +1,1 @@
+default_app_config = 'openvpn_control.apps.OpenVpnControlConfig'

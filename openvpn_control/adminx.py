@@ -13,5 +13,26 @@ class VPNAdmin(object):
     # )
 
 
+class OVPNAdmin(object):
+    search_fields = (
+        "country",
+        'protocol',
+        'port'
+    )
+
+    list_filter = (
+        "country",
+        'protocol',
+        'port'
+    )
+
+    list_display = (
+        'file',
+        "country",
+        'protocol',
+        'port'
+    )
+
+
 site.register(Vpn, VPNAdmin)
-site.register(Ovpn)
+site.register(Ovpn, OVPNAdmin)

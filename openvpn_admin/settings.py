@@ -40,6 +40,8 @@ MEDIA_URL = "/media/"
 STATIC_ROOT = os.path.join(BASE_DIR, 'vpn-statics')
 STATIC_URL = "/static/"
 
+XADMIN_EXCLUDE_PLUGINS = ["bookmark", "export"]
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.auth',

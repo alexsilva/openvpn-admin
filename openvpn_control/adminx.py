@@ -15,6 +15,8 @@ class VPNAdmin(object):
 
 
 class OVPNAdmin(object):
+    refresh_times = range(15, 61, 15)
+
     search_fields = (
         "country",
         'protocol',

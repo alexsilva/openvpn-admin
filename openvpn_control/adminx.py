@@ -1,3 +1,4 @@
+from django.template.loader import render_to_string
 from xadmin import site
 
 from .models import Vpn, Ovpn
@@ -30,8 +31,19 @@ class OVPNAdmin(object):
         'file',
         "country",
         'protocol',
-        'port'
+        'port',
+        'vpn_activate'
     )
+
+    def vpn_activate(self, instance):
+        """ativate vpn"""
+        return render_to_string("w_buttom.html", context={
+            'instance': instance
+        })
+
+    vpn_activate.short_description = "VPN"
+    vpn_activate.allow_tags = True
+    vpn_activate.is_column = False
 
 
 site.register(Vpn, VPNAdmin)

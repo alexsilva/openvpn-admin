@@ -18,5 +18,7 @@ class Ovpn(models.Model):
 
     vpn = models.ForeignKey(Vpn, verbose_name="VPN")
 
+    activated = models.BooleanField('Activated', default=False)
+
     def __unicode__(self):
         return u"{0.file} / {0.vpn}".format(self)

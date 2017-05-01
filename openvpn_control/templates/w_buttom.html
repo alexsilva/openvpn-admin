@@ -1,0 +1,17 @@
+<button id="vpn-activate-{{ instance.pk }}">activate</button>
+<script>
+    $(document).ready(function () {
+        $("#vpn-activate-{{ instance.pk }}").click(function (event) {
+            event.preventDefault();
+
+            $.ajax("{% url "vpn-control-activate" pk=instance.pk %}", {
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (data) {
+                    console.log(data)
+                }
+            })
+        });
+    });
+</script>

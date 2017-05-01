@@ -11,7 +11,7 @@ class VPNActivateView(View):
         Ovpn.objects.filter(pk=pk).update(activated=True)
         call_command("supervisor", **{'ctl-command': ('restart', 'openvpn')})
         return JsonResponse({
-            'status': "OK"
+            'status': "success"
         })
 
 

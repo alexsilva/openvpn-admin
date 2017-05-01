@@ -1,5 +1,7 @@
-<div>
-    <button type="button" id="vpn-activate-{{ instance.pk }}" class="btn btn-default">activate</button>
+<div >
+    <button type="button" id="vpn-activate-{{ instance.pk }}"
+            class="btn btn-vpn btn-{% if instance.activated %}success{% else %}default{% endif %}"
+            data-loading-text="processing...">activate</button>
 </div>
 <script>
     var updateIpInfo = function () {
@@ -14,18 +16,26 @@
     };
     var button = $("#vpn-activate-{{ instance.pk }}");
     {% if instance.activated %}
-        button.attr("disabled", 'disabled');
+        button.addClass("disabled");
         updateIpInfo();
     {% else %}
         button.click(function (event) {
             event.preventDefault();
-
+            var $this = $(this);
+            $this.button('loading');
             $.ajax("{% url "vpn-control-activate" pk=instance.pk %}", {
                 success: function (data) {
                     console.log(data);
+                    $(".btn-vpn")
+                        .removeClass("btn-success disabled")
+                        .addClass("btn-default")
+                        .text("activate");
+                    $this.removeClass("btn-default").addClass("btn-success disabled");
+                    $this.text(data.status);
                     updateIpInfo();
                 },
                 error: function (data) {
+                    $this.button('reset');
                     console.log(data)
                 }
             });

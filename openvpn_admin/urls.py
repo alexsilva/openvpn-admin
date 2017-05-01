@@ -16,8 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 import xadmin
 import openvpn_control.urls
+import django_js_reverse.views
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
-    url(r'^vpn/control/', include(openvpn_control.urls))
+    url(r'^vpn/control/', include(openvpn_control.urls)),
+    url(r'^jsreverse/$', django_js_reverse.views.urls_js, name='js_reverse'),
 ]

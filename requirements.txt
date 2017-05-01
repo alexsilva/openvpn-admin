@@ -1,6 +1,7 @@
 git+https://github.com/alexsilva/django-xadmin.git@master
 git+https://github.com/kennethreitz/its.py.git@master
 django-supervisor
+django-js-reverse
 # supervisor
 ipgetter
 django-environ

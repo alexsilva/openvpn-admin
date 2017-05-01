@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'djsupervisor',
-    'openvpn_control'
+    'openvpn_control',
+    'django_js_reverse'
 ]
 
 MIDDLEWARE_CLASSES = [

@@ -1,11 +1,15 @@
 from django import forms
 import zipfile
 import io
+import re
 
 from .models import Ovpn
 
 
 class VPNForm(forms.ModelForm):
+
+    pattern_details = re.compile("(?P<country>.+?)\d*\.nordvpn\.com\.(?P<protocol>\w+?)(?P<port>\d+)\.ovpn")
+
     import_zip = forms.FileField(
         label="Importe from zip",
         help_text="import .ovpn files from zip",
@@ -29,11 +33,21 @@ class VPNForm(forms.ModelForm):
 
             for filename in zipf.namelist():
                 stream = zipf.read(filename)
-                ovpn = Ovpn(vpn=instance)
-                _stream = io.BytesIO(stream)
-                _stream.size = len(stream)
-                ovpn.file.save(filename, _stream)
-                ovpn.save()
+
+                match = self.pattern_details.match(filename)
+                if match:
+                    dgroup = match.groupdict()
+                    ovpn = Ovpn(vpn=instance,
+                                country=dgroup['country'],
+                                protocol=dgroup['protocol'],
+                                port=int(dgroup['port']))
+                    _stream = io.BytesIO(stream)
+                    _stream.size = len(stream)
+                    ovpn.file.save(filename, _stream)
+                    ovpn.save()
+                else:
+                    print '*' * 25
+                    print filename
 
     def save(self, commit=True):
         instance = super(VPNForm, self).save(commit=commit)

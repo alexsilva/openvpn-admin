@@ -11,7 +11,12 @@ class Vpn(models.Model):
 
 class Ovpn(models.Model):
     file = models.FileField(".ovpn", help_text="configuration file")
+
+    country = models.CharField("Country", max_length=8)
+    protocol = models.CharField("Protocol", max_length=8)
+    port = models.IntegerField("Port")
+
     vpn = models.ForeignKey(Vpn, verbose_name="VPN")
 
     def __unicode__(self):
-        return u"{0.file} / 0.vpn".format(self)
+        return u"{0.file} / {0.vpn}".format(self)

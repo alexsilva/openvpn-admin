@@ -47,7 +47,7 @@ class OVPNAdmin(object):
 
     def vpn_activate(self, instance):
         """ativate vpn"""
-        return render_to_string("w_buttom.html", context={
+        return render_to_string("openvpn/w_buttom.html", context={
             'instance': instance
         })
 

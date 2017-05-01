@@ -16,7 +16,7 @@ class JSHeadPlugin(BaseAdminPlugin):
 
     def _init(self):
         """Configurações do plugin depois que foi marcado como ativo"""
-        self.admin_view.base_template = 'js_head_base.html'
+        self.admin_view.base_template = 'openvpn/js_head_base.html'
 
     def init_request(self, *args, **kwargs):
         if len(self.render_js_on_head) > 0:

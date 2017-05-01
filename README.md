@@ -24,3 +24,6 @@ DEFAULTS (django-environ)
 ``` /etc/supervisor/openvpn-admin/settings.env (Location of the environment configuration script.)```
 ``` SUPERVISOR_HTTP_SERVER_PORT == 9105 (Supervisor rpc port)```
 ``` DJANGO_RUNSERVER_PORT == 8105 (Port of the local django admin server)```
+
+
+![Admin](https://github.com/alexsilva/openvpn-admin/raw/master/images/vpn.PNG)

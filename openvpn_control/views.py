@@ -9,6 +9,7 @@ class VPNActivateView(View):
     def get(self, request, pk):
         Ovpn.objects.exclude(pk=pk).update(activated=False)
         Ovpn.objects.filter(pk=pk).update(activated=True)
+        # restart with new configurations (root)
         call_command("supervisor", **{'ctl-command': ('restart', 'openvpn')})
         return JsonResponse({
             'status': "success"

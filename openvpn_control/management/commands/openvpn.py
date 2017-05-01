@@ -20,6 +20,11 @@ class Command(BaseCommand):
         ovpn = Ovpn.objects.filter(activated=True)
 
         if ovpn.exists():
+            # root always required
+            try:
+                sh.killall("openvpn")
+            except sh.ErrorReturnCode:
+                pass  # no process
             ovpn = ovpn[0]
             auth_filepath = os.path.join(settings.BASE_DIR, "vpn{0.vpn.pk}.auth.txt".format(ovpn))
             with open(auth_filepath, "w") as auth:

@@ -10,6 +10,12 @@ INSTALL
 
 ``` sudo python -m pip install -r requirements.txt ```
 
+``` python manage.py makemigrations ```
+
+``` python manage.py migrate ```
+
+``` python manage.py createsuperuser (after enter: admin | admin12345)```
+
 EXPORT SUPERVISOR CONFIG `as root`
 
 ``` python manage.py supervisor getconfig > /etc/supervisor/supervisord.conf ```

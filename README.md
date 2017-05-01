@@ -14,7 +14,7 @@ EXPORT SUPERVISOR CONFIG `as root`
 
 ``` python manage.py supervisor getconfig > /etc/supervisor/supervisord.conf ```
 
-SUPERVISOR INITIALIZATION `Supervisor must start as root user´
+SUPERVISOR INITIALIZATION `Supervisor must start as root user`
 
 ``` sudo service supervisor start ```
 

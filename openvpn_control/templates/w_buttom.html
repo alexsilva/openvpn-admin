@@ -26,11 +26,13 @@
             $.ajax("{% url "vpn-control-activate" pk=instance.pk %}", {
                 success: function (data) {
                     console.log(data);
-                    $(".btn-vpn")
-                        .removeClass("btn-success disabled")
-                        .addClass("btn-default")
-                        .text("activate");
-                    $this.removeClass("btn-default").addClass("btn-success disabled");
+                    $(".btn-vpn").removeClass("btn-success")
+                                 .removeClass("disabled")
+                                 .addClass("btn-default")
+                                 .text("activate");
+                    $this.removeClass("btn-default")
+                         .addClass("btn-success")
+                         .addClass("disabled");
                     $this.text(data.status);
                     updateIpInfo();
                 },

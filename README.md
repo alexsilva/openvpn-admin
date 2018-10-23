@@ -6,6 +6,8 @@ Web interface written in python/django to manage vpn connections.
 
 ``` git clone https://github.com/alexsilva/openvpn-admin.git ```
 
+``` cd openvpn-admin ```
+
 ``` sudo apt-get install supervisor ```
 
 ``` sudo python -m pip install -r requirements.txt ```

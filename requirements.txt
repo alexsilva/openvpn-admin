@@ -5,5 +5,5 @@ django-supervisor
 django-js-reverse
 # supervisor
 django-environ
-django==1.9.+
+django>=1.9.+
 sh

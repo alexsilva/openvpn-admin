@@ -4,6 +4,8 @@ Web interface written in python/django to manage vpn connections.
 
 # INSTALL
 
+## Not maintained [send pull requests for improvements]
+
 ``` git clone https://github.com/alexsilva/openvpn-admin.git ```
 
 ``` cd openvpn-admin ```

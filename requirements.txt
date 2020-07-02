@@ -1,9 +1,9 @@
 git+https://github.com/alexsilva/django-xadmin.git@master
 git+https://github.com/kennethreitz/its.py.git@master
+git+https://github.com/madmouser1/ipgetter.git@master
 django-supervisor
 django-js-reverse
 # supervisor
-ipgetter
 django-environ
 django==1.9.+
 sh
